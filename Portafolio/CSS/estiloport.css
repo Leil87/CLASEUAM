@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+/* navbar */
+.navbar{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    
+}
+.navbar::before{
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+.navbar ul{
+    display: flex;
+    list-style: none;
+}
+.navbar ul li{
+    font-size: 1.1rem;
+}
+.navbar ul li a{
+    padding: 5px 20px;
+    text-decoration: none;
+    color: white;
+}
+.navbar ul li a:hover{
+    border-bottom: 2px solid  white;
+}
+
+/* seccion INICIO*/
+#INICIO{
+    display: flex;
+    flex-direction: column;
+    height: 650px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white; 
+
+}
+#INICIO::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('bio.jpeg');
+    height: 700px;
+    width: 100%;
+    z-index: -1;
+    opacity: .8;
+}
+.heading{
+    color: white;
+    font-size: 3rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    transform: scale(1,1.3);
+}
+
+
+/* seccion BIOGRAFÍA*/ 
+#BIOGRAFÍA{
+    display: flex;
+    flex-direction:column;
+    height: 600px;
+}
+#BIOGRAFÍA h1{
+    color: black;
+    margin: 55px;
+}
+.BIOGRAFÍA{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.BIOGRAFÍA img{
+    width: 425px;
+    height: 400px;
+    padding: 0px 30px;
+}
+.nombre{
+    padding: 10px;
+}
+.nombre h2{
+    font-size: 2rem;
+}
+.nombre p{
+    font-size: 1.2 rem;
+}
+
+/*seccion Trabajo*/
+#TRABAJO{
+    display: flex;
+    flex-direction: column;
+    background-color: #000000dc;
+}
+#TRABAJO h1{
+    margin:60px;
+}
+.gallery{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.gallery img{
+    width: 514px;
+    height: 356px;
+    padding: 10px;
+    margin: 10px;
+}
+.gallery img:hover{
+    background-color: grey;
+    cursor: pointer;
+}
+
+/* seccion CONTACTO */
+#CONTACTO{
+    display: flex;
+    flex-direction: column;
+    height: 650px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white; 
+
+}
+.heading{
+    color: white;
+    font-size: 3rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    transform: scale(1,1.3);
+}
