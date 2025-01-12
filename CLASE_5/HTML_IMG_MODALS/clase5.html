@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 01</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="clase5.css">
+    <link rel="icon" href="https://www.ler.uam.mx/BienestarUniversitario/wp-content/uploads/2024/01/UAML.png">
+</head>
+<body>
+    <div class="container">
+        <section class="encabezado">
+            <h1>Este es el reto 01</h1>
+            <p>Lee cuidadosamente cada sección, usa todas las herramientas a tu alcance para recrear todo el sitio web</p>
+        </section>
+
+        <!-- Sección de etiquetas de audio -->
+        <section>
+            <h2>Sección 01: Compendio de Etiquetas de Audio</h2>
+            <p>Esta sección contiene 100 etiquetas de audio distribuidas en un grid de 3 x 10. Cada etiqueta se crea dinámicamente utilizando JavaScript.</p>
+            <div class="audio-tags" id="audioTags"></div>
+        </section>
+        
+        <!-- Sección de fotos con interacción -->
+        <section>
+            <h2>Sección 02: Galería de Fotos</h2>
+            <p>Explora esta galería de tres imágenes con efectos de hover e interacciones al hacer clic.</p>
+            <div class="photos">
+                <div class="photo" style="background-image: url('https://content.nationalgeographic.com.es/medio/2022/12/12/medusa-1_18f71886_221212160402_1280x720.jpg')" onclick="openModal('https://content.nationalgeographic.com.es/medio/2022/12/12/medusa-1_18f71886_221212160402_1280x720.jpg')"></div>
+                <div class="photo" style="background-image: url('https://cdn.pixabay.com/photo/2023/04/12/16/57/flowers-7920771_1280.jpg')" onclick="openModal('https://cdn.pixabay.com/photo/2023/04/12/16/57/flowers-7920771_1280.jpg')"></div>
+                <div class="photo" style="background-image: url('https://content.nationalgeographic.com.es/medio/2022/12/12/mariposa-1_f03c2ce8_221212160247_1280x720.jpg')" onclick="openModal('https://content.nationalgeographic.com.es/medio/2022/12/12/mariposa-1_f03c2ce8_221212160247_1280x720.jpg')"></div>
+            </div>
+        </section>
+        <!-- Modal Overlay -->
+        <div id="modal" class="modal" onclick="closeModal()">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" class="modal-content">
+        </div>
+        
+        <!-- Sección de video -->
+        <section class="video-section">
+            <h2>Sección 03: Video Central</h2>
+            <p>Visualiza este video central que se reproduce automáticamente y en loop.</p>
+            <div class="video-container">
+                <video autoplay muted loop controls>
+                    <source src="https://videos.pexels.com/video-files/28870815/12500377_2560_1440_24fps.mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+            </div>
+        </section>
+    </div>
+
+    <script src="clase5.js"></script>
+</body>
+</html>
