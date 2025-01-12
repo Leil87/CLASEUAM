@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Mapa</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <h1>Formulario con Mapa Interactivo</h1>
+    <form id="data-form">
+        <label for="title">Título:</label>
+        <input type="text" id="title" name="title" required />
+        <label for="description">Descripción:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+        <div id="map" style="height: 400px;"></div>
+        <button type="button" id="save-button">Guardar Datos</button>
+    </form>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        let latitude, longitude;
+        const map = L.map('map').setView([0, 0], 2); // Mapa global centrado
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+        let marker;
+        map.on('click', function (e) {
+            latitude = e.latlng.lat;
+            longitude = e.latlng.lng;
+            if (marker) map.removeLayer(marker);
+            marker = L.marker([latitude, longitude]).addTo(map);
+        });
+
+        document.getElementById('save-button').addEventListener('click', () => {
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            if (!latitude || !longitude) {
+                alert('Por favor, selecciona un punto en el mapa.');
+                return;
+            }
+
+            const newEntry = {
+                type: "Feature",
+                properties: { title, description },
+                geometry: { type: "Point", coordinates: [longitude, latitude] }
+            };
+
+            fetch('/update-geojson', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newEntry)
+            })
+            .then(response => response.json())
+            .then(data => alert(data.message))
+            .catch(err => alert('Error al guardar los datos.'));
+        });
+    </script>
+</body>
+</html>
